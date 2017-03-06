@@ -18,68 +18,81 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  * @author kaushal
  */
 
-@Document(collection = "Traffic_Data")
 @JsonInclude(Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TrafficData {
-
-	@Id
-    private String id;
 	
-	private String siteId;
     private String siteName;
-    private String dataValue;
-    
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private Date dateAndTime;
+	private String lat;
+	private String lon;
 
-    public String getId() {
-        return id;
-    }
+	private TrafficBusiness trafficBusinessA;
+	private TrafficSpeed trafficSpeedA;
+	private TrafficBusiness trafficBusinessB;
+	private TrafficSpeed trafficSpeedB;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getSiteName() {
-        return siteName;
-    }
-
-    public void setSiteName(String siteName) {
-        this.siteName = siteName;
-    }
-
-    public String getSiteId() {
-        return siteId;
-    }
-
-    public void setSiteId(String siteId) {
-        this.siteId = siteId;
-    }
-    
-    public String getDataValue() {
-		return dataValue;
+	public String getSiteName() {
+		return siteName;
 	}
 
-	public void setDataValue(String dataValue) {
-		this.dataValue = dataValue;
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
 	}
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    public Date getDateAndTime() {
+	public String getLat() {
+		return lat;
+	}
 
-        return this.dateAndTime == null ? null : (Date) this.dateAndTime
-                .clone();
-    }
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
 
-    public void setDateAndTime(Date dateAndTime) {
-        this.dateAndTime = (Date) dateAndTime.clone();
-    }
+	public String getLon() {
+		return lon;
+	}
 
-    @Override
-    public String toString() {
-        return "TrafficData [siteName=" + siteName + ", siteId=" + siteId +", dataValue=" + dataValue
-                + ", creationDate=" + dateAndTime + "]";
-    }
+	public void setLon(String lon) {
+		this.lon = lon;
+	}
+
+	public TrafficBusiness getTrafficBusinessA() {
+		return trafficBusinessA;
+	}
+
+	public void setTrafficBusinessA(TrafficBusiness trafficBusinessA) {
+		this.trafficBusinessA = trafficBusinessA;
+	}
+
+	public TrafficSpeed getTrafficSpeedA() {
+		return trafficSpeedA;
+	}
+
+	public void setTrafficSpeedA(TrafficSpeed trafficSpeedA) {
+		this.trafficSpeedA = trafficSpeedA;
+	}
+
+	public TrafficBusiness getTrafficBusinessB() {
+		return trafficBusinessB;
+	}
+
+	public void setTrafficBusinessB(TrafficBusiness trafficBusinessB) {
+		this.trafficBusinessB = trafficBusinessB;
+	}
+
+	public TrafficSpeed getTrafficSpeedB() {
+		return trafficSpeedB;
+	}
+
+	public void setTrafficSpeedB(TrafficSpeed trafficSpeedB) {
+		this.trafficSpeedB = trafficSpeedB;
+	}
+
+	@Override
+	public String toString() {
+		return "TrafficData[lat=" + lat + ", lon=" + lon + ",siteName="
+				+ siteName + ", trafficBusinessA=" + trafficBusinessA
+				+ ", trafficSpeedA=" + trafficSpeedA + ", trafficBusinessB="
+				+ trafficBusinessB + ", trafficSpeedB=" + trafficSpeedB + "]";
+	}
 
 }

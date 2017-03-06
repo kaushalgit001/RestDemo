@@ -20,8 +20,8 @@ public interface Constants {
     String SITE_ID = "siteId";
     String SITE_NAME = "siteName";
     // Collection name
-    String TRAFFIC_COLLECTION = "Traffic_Data";
+    String TRAFFIC_COLLECTION = "Traffic_Report";
     // class name
-    String TRAFFIC_DATA = "TrafficData";
+    String TRAFFIC_REPORT = "TrafficReport";
 
 }

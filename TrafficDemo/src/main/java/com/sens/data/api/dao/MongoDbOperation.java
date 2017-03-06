@@ -17,6 +17,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.sens.data.api.model.TrafficData;
+import com.sens.data.api.model.TrafficReport;
 import com.sens.data.api.util.CommonUtil;
 
 /**
@@ -40,13 +41,13 @@ public class MongoDbOperation {
      * @param trafficData
      * @return
      */
-    public TrafficData insertTrafficData(TrafficData trafficData) {
+    public TrafficReport insertTrafficData(TrafficReport trafficReport) {
 
         LOGGER.info("Insert in collection " + TRAFFIC_COLLECTION);
        try {
-    	   trafficData.setDateAndTime(new Date());
-            mongoTemplate.save(trafficData, TRAFFIC_COLLECTION);
-            return trafficData;
+    	   trafficReport.setRecordTime(new Date());
+            mongoTemplate.save(trafficReport, TRAFFIC_COLLECTION);
+            return trafficReport;
         } catch (Exception e) {
             LOGGER.info("Fail to insert", e);
             return null;
@@ -54,11 +55,11 @@ public class MongoDbOperation {
 
     }
 
-    /**
+/*    *//**
      * Method to fetch List from Traffic_Data collections.
      * 
      * @return
-     */
+     *//*
 
     public List<TrafficData> fetchAllTrafficInfo() {
 
@@ -72,13 +73,13 @@ public class MongoDbOperation {
         }
     }
 
-    /**
+    *//**
      * Method to fetch from Traffic_Data collections based on siteId and siteName.
      * 
      * @param siteId
      * @param siteName
      * @return
-     */
+     *//*
     public TrafficData fetchBySiteIdSiteName(String siteId, String siteName) {
 
         LOGGER.info("Fetch data by siteId and siteName from collection "
@@ -94,5 +95,5 @@ public class MongoDbOperation {
             return null;
         }
 
-    }
+    }*/
 }

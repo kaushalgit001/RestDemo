@@ -19,8 +19,10 @@ import static com.sens.data.api.constant.Parameter.INSERT_TO;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sens.data.api.model.TrafficData;
+import com.sens.data.api.model.TrafficReport;
 import com.sens.data.api.pojo.ApiResponse;
 import com.sens.data.api.service.TrafficDataService;
+
 
 
 //import org.springframework.http.HttpStatus;
@@ -71,9 +73,9 @@ public class RootController {
         ObjectMapper mapper = new ObjectMapper();
         ApiResponse apiResponse = new ApiResponse();
 
-        if (insertTo.equalsIgnoreCase(TRAFFIC_DATA)) {
+        if (insertTo.equalsIgnoreCase(TRAFFIC_REPORT)) {
 
-            TrafficData trafficData = mapper.readValue(content, TrafficData.class);
+        	TrafficReport trafficData = mapper.readValue(content, TrafficReport.class);
             LOGGER.info("Create operation with Request context:/sens/v1 Method: POST : "
                     + trafficData);
             apiResponse = trafficDataService.insertTrafficData(trafficData);
@@ -81,15 +83,15 @@ public class RootController {
         return apiResponse;
 
     }
-
-        /**
+/*
+        *//**
      * Fetch user information from Traffic_Data collection based on filter criteria.
      * 
      * @param fetchBy
      * @param fetchValue
      * @return
      * @throws IOException
-     */
+     *//*
     @RequestMapping(value = "/fetch", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     ApiResponse fetch(
             @RequestParam(value = FILTER_BY, required = false, defaultValue = "ALL") String fetchBy,
@@ -109,5 +111,5 @@ public class RootController {
         return trafficDataService.fetchAllTrafficData();
     }
 	
-	
+*/	
 }

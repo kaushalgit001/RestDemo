@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.sens.data.api.constant.Constants.STATUS;
 import com.sens.data.api.dao.MongoDbOperation;
 import com.sens.data.api.model.TrafficData;
+import com.sens.data.api.model.TrafficReport;
 import com.sens.data.api.pojo.ApiResponse;
 import com.sens.data.api.util.CommonUtil;
 
@@ -39,10 +40,10 @@ public class TrafficDataServiceImpl implements TrafficDataService {
      * @return
      */
     @Override
-    public ApiResponse insertTrafficData(TrafficData trafficData) {
+    public ApiResponse insertTrafficData(TrafficReport trafficData) {
 
         LOGGER.info("Inserting Data to Traffic_Data DB " +trafficData);
-        TrafficData responseFrmUserInfo = mongoDbOperation
+        TrafficReport responseFrmUserInfo = mongoDbOperation
                 .insertTrafficData(trafficData);
 
         if (null == responseFrmUserInfo) {
@@ -60,7 +61,7 @@ public class TrafficDataServiceImpl implements TrafficDataService {
     /**
      * Method to Fetch All the Data from Traffic_Data collections.
      * @return
-     */
+     *//*
     @Override
     public ApiResponse fetchAllTrafficData() {
 
@@ -79,12 +80,12 @@ public class TrafficDataServiceImpl implements TrafficDataService {
 
     }
 
-    /**
+    *//**
      * Method to fetch Data by siteId and siteName In Traffic_Data collections.
      * 
      * @param fetchValue
      * @return
-     */
+     *//*
     @Override
     public ApiResponse fetchBySiteIdAndSiteName(String fetchValue) {
 
@@ -106,5 +107,5 @@ public class TrafficDataServiceImpl implements TrafficDataService {
         return CommonUtil.createApiResponse(STATUS.SUCCESS, trafficData);
 
     }
-
+*/
 }

@@ -1,6 +1,7 @@
 package com.sens.data.api.service;
 
 import com.sens.data.api.model.TrafficData;
+import com.sens.data.api.model.TrafficReport;
 import com.sens.data.api.pojo.ApiResponse;
 
 /**
@@ -17,7 +18,7 @@ public interface TrafficDataService {
      * @param trafficData
      * @return
      */
-    ApiResponse insertTrafficData(TrafficData trafficData);
+    ApiResponse insertTrafficData(TrafficReport trafficData);
     
     /**
      * Method to Fetch All the Data from Traffic_Data collections.
@@ -25,15 +26,15 @@ public interface TrafficDataService {
      * @return
      */
 
-    ApiResponse fetchAllTrafficData();
+  /*  ApiResponse fetchAllTrafficData();
 
-    /**
+    *//**
      * Method to fetch Data by provided fetchValue("siteId,siteName") from
      * Traffic_Data collections.
      * 
      * @param fetchValue
      * @return
-     */
+     *//*
     ApiResponse fetchBySiteIdAndSiteName(String fetchValue);
-
+*/
 }
